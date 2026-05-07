@@ -24,6 +24,25 @@ Eine einzelne HTML-Seite mit fertigen Dialog-Prompts, die Lehrkräfte Schritt f�
 2. Prompt in eine KI einfügen – die KI führt dialogisch durch die Erstellung
 3. Fertige Texte in die AIS.chat-Formulare eintragen
 
+## Anleitung
+
+### Schnellstart für Lehrkräfte
+1. Öffne die Live-Seite: https://mgkurz.github.io/ais-chat-config/
+2. Wähle einen der drei Konfigurationstypen (Lernszenario, Dialogpartner oder Assistent).
+3. Klicke auf „Prompt kopieren".
+4. Füge den Prompt in eine KI Deiner Wahl ein (AIS.chat, Duck AI, ChatGPT, Claude …).
+5. Beantworte die Rückfragen der KI Schritt für Schritt.
+6. Übertrage die fertigen Texte in die entsprechenden AIS.chat-Formularfelder.
+
+### Tipps
+- Du kannst den Prompt auch zwischendurch anpassen, wenn Dein Lernziel sich ändert.
+- Bei Lernszenarien lohnt es sich, die Verhaltensregeln möglichst konkret zu formulieren.
+- Bei Dialogpartnern: präziser Charakter + klare Gesprächsziele = bessere Ergebnisse.
+
+### Lokale Nutzung
+- `index.html` aus dem Repository herunterladen und im Browser öffnen — fertig.
+- Keine Installation, keine Abhängigkeiten, keine Cookies.
+
 ## Technik
 
 - Eine einzige `index.html` – kein Framework, kein Build-Step
