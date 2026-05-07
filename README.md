@@ -1,20 +1,20 @@
-# telli-konfig
+# ais-chat-config
 
-KI-gestützte Erstellung von telli-Konfigurationen – Lernszenarien, Dialogpartner und Assistenten.
+KI-gestützte Erstellung von AIS.chat-Konfigurationen – Lernszenarien, Dialogpartner und Assistenten.
 
 ## Was ist das?
 
-Eine einzelne HTML-Seite mit fertigen Dialog-Prompts, die Lehrkräfte Schritt für Schritt durch die Erstellung von telli-Konfigurationen führen. Die Prompts können mit einem Klick kopiert und in eine KI der Wahl eingefügt werden – z. B. telli, Duck AI, ChatGPT oder Claude.
+Eine einzelne HTML-Seite mit fertigen Dialog-Prompts, die Lehrkräfte Schritt für Schritt durch die Erstellung von AIS.chat-Konfigurationen führen. Die Prompts können mit einem Klick kopiert und in eine KI der Wahl eingefügt werden – z. B. AIS.chat, Duck AI, ChatGPT oder Claude.
 
-**telli** ist der DSGVO-konforme KI-Chatbot für hessische Schulen, erreichbar über das Schulportal Hessen. Weitere Informationen: [ki.bildung.hessen.de](https://ki.bildung.hessen.de)
+**AIS.chat** ist der DSGVO-konforme KI-Chatbot für hessische Schulen, erreichbar über das Schulportal Hessen. Weitere Informationen: [ki.bildung.hessen.de](https://ki.bildung.hessen.de)
 
 ## Live ansehen
 
-👉 [https://mgkurz.github.io/telli-konfig/](https://mgkurz.github.io/telli-konfig/)
+👉 [https://mgkurz.github.io/ais-chat-config/](https://mgkurz.github.io/ais-chat-config/)
 
 ## Drei Konfigurationstypen
 
-- **Lernszenario** – themengebundener Chat-Raum für Lernende mit definiertem telli-Verhalten (4 Schritte, 4 Felder)
+- **Lernszenario** – themengebundener Chat-Raum für Lernende mit definiertem AIS.chat-Verhalten (4 Schritte, 4 Felder)
 - **Dialogpartner** – simulierte Person oder Figur, die Lernende im Gespräch begleitet (7 Schritte, 7 Felder)
 - **Assistent** – konfigurierbares KI-Werkzeug primär für Lehrkräfte zur Unterrichtsvorbereitung (4 Schritte, 4 Felder + Promptvorschläge)
 
@@ -22,7 +22,7 @@ Eine einzelne HTML-Seite mit fertigen Dialog-Prompts, die Lehrkräfte Schritt f�
 
 1. Konfigurationstyp wählen und Prompt kopieren
 2. Prompt in eine KI einfügen – die KI führt dialogisch durch die Erstellung
-3. Fertige Texte in die telli-Formulare eintragen
+3. Fertige Texte in die AIS.chat-Formulare eintragen
 
 ## Technik
 
