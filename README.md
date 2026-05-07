@@ -46,5 +46,5 @@ CC BY-SA 4.0 · Hessische Lehrkräfteakademie · Martin Kurz
 
 ## Kontakt
 
-Martin Kurz, Hessische Lehrkräfteakademie, Dezernat II.3 Medien (Medialab)
+Martin Kurz, Hessische Lehrkräfteakademie, Dezernat II.3 Medien
 E-Mail: martin.kurz@bildung.hessen.de
