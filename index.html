@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIS.chat-Vorlagen erstellen: Lernszenarien, Dialogpartner, Assistenten</title>
-<meta name="description" content="Fertige Prompts zum Erstellen von AIS.chat-Vorlagen, also Lernszenarien, Dialogpartnern und Assistenten. Für Lehrkräfte. Direktmodus oder Interview, mit KI Ihrer Wahl.">
+<title>AIS.chat-Vorlagen erstellen: Assistenten, Lernszenarien, Dialogpartner</title>
+<meta name="description" content="Fertige Prompts zum Erstellen von AIS.chat-Vorlagen, also Assistenten, Lernszenarien und Dialogpartnern. Für Lehrkräfte. Direktmodus oder Interview, mit KI Ihrer Wahl.">
 <style>
 :root {
 --color-bg: #ffffff;
@@ -288,14 +288,14 @@ text-decoration: none;
 <header class="site-header">
 <div class="container">
 <h1>AIS.chat-Vorlagen erstellen</h1>
-<p class="subtitle">Fertige Prompts für Lernszenarien, Dialogpartner und Assistenten</p>
+<p class="subtitle">Fertige Prompts für Assistenten, Lernszenarien und Dialogpartner</p>
 </div>
 </header>
 
 <div class="container">
 
 <div class="intro-box">
-<strong>So funktioniert es:</strong> Wählen Sie einen Vorlagentyp aus, kopieren Sie den Prompt und fügen Sie ihn in eine KI Ihrer Wahl ein, z.&nbsp;B. AIS.chat, Duck&nbsp;AI, ChatGPT oder Claude. Beschreiben Sie kurz Thema und Zielgruppe, dann erzeugt die KI direkt die fertigen Texte. Bei vagen Angaben fragt die KI Schritt für Schritt nach. Am Ende übertragen Sie die ausgegebenen Texte in das AIS.chat-Formular.
+<strong>So funktioniert es:</strong> Wählen Sie einen Vorlagentyp aus und kopieren Sie den Prompt. Fügen Sie ihn in eine KI Ihrer Wahl ein, z.&nbsp;B. AIS.chat, Duck&nbsp;AI, ChatGPT oder Claude. Tragen Sie Ihre Idee ganz unten unter IHRE EINGABE ein und senden alles zusammen ab, dann erzeugt die KI direkt die fertigen Texte. Lassen Sie das Feld leer, werden Sie Schritt für Schritt gefragt. Am Ende übertragen Sie die ausgegebenen Texte in das AIS.chat-Formular.
 </div>
 
 <ul class="how-it-works">
@@ -305,6 +305,31 @@ text-decoration: none;
 </ul>
 
 <div class="cards">
+
+<!-- ASSISTENT -->
+<div class="card" data-type="assistent">
+<div class="card-header">
+<div class="card-icon">🛠️</div>
+<div>
+<div class="card-title">Assistent</div>
+<div class="card-meta">5 Felder · primär für Lehrkräfte</div>
+</div>
+</div>
+<div class="card-body">
+<p>Ein Assistent ist ein konfigurierbares KI-Werkzeug primär für Lehrkräfte. Materialerstellung, Differenzierung, Korrekturhilfe, Aufgabenvariation. Auch direkt durch Lernende nutzbar, z.&nbsp;B. als Schreibcoach.</p>
+<p>Typisch für: Arbeitsblätter erstellen, Quizfragen generieren, Texte differenzieren, Unterrichtsplanung.</p>
+</div>
+<div class="prompt-preview" id="preview-assistent">
+<textarea id="text-assistent" readonly></textarea>
+</div>
+<div class="card-actions">
+<button class="btn-copy" onclick="copyPrompt('assistent', this)">
+<span>🛠️</span> Prompt kopieren
+</button>
+<button class="preview-toggle" onclick="togglePreview('assistent')">Vorschau anzeigen</button>
+<span class="copy-hint">Dann in AIS.chat, Duck&nbsp;AI, ChatGPT oder Claude einfügen</span>
+</div>
+</div>
 
 <!-- LERNSZENARIO -->
 <div class="card" data-type="lernszenario">
@@ -356,38 +381,13 @@ text-decoration: none;
 </div>
 </div>
 
-<!-- ASSISTENT -->
-<div class="card" data-type="assistent">
-<div class="card-header">
-<div class="card-icon">🛠️</div>
-<div>
-<div class="card-title">Assistent</div>
-<div class="card-meta">5 Felder · primär für Lehrkräfte</div>
-</div>
-</div>
-<div class="card-body">
-<p>Ein Assistent ist ein konfigurierbares KI-Werkzeug primär für Lehrkräfte. Materialerstellung, Differenzierung, Korrekturhilfe, Aufgabenvariation. Auch direkt durch Lernende nutzbar, z.&nbsp;B. als Schreibcoach.</p>
-<p>Typisch für: Arbeitsblätter erstellen, Quizfragen generieren, Texte differenzieren, Unterrichtsplanung.</p>
-</div>
-<div class="prompt-preview" id="preview-assistent">
-<textarea id="text-assistent" readonly></textarea>
-</div>
-<div class="card-actions">
-<button class="btn-copy" onclick="copyPrompt('assistent', this)">
-<span>🛠️</span> Prompt kopieren
-</button>
-<button class="preview-toggle" onclick="togglePreview('assistent')">Vorschau anzeigen</button>
-<span class="copy-hint">Dann in AIS.chat, Duck&nbsp;AI, ChatGPT oder Claude einfügen</span>
-</div>
-</div>
-
 </div><!-- /cards -->
 
 </div><!-- /container -->
 
 <footer class="site-footer">
 <div class="container">
-CC BY-SA 4.0 · Hessische Lehrkräfteakademie · Martin Kurz · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutzerklärung</a>
+CC BY-SA 4.0 · © 2026 Hessische Lehrkräfteakademie · Martin Kurz · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutzerklärung</a>
 </div>
 </footer>
 
@@ -410,7 +410,7 @@ E-Mail: <a href="mailto:martin.kurz@bildung.hessen.de">martin.kurz@bildung.hesse
 
 <h2>Lizenz</h2>
 <p>
-Die Inhalte dieser Website (Prompts und Texte) stehen unter der Lizenz <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank" rel="noopener">CC BY-SA 4.0</a> (Creative Commons Namensnennung, Weitergabe unter gleichen Bedingungen).
+Die Inhalte dieser Website (Prompts und Texte) stehen unter der Lizenz <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank" rel="noopener">CC BY-SA 4.0</a> (Creative Commons Namensnennung, Weitergabe unter gleichen Bedingungen).<br>© 2026 Hessische Lehrkräfteakademie, Martin Kurz
 </p>
 
 <h2>Quellcode</h2>
@@ -476,7 +476,11 @@ Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Ve
 
 const PROMPTS = {
 
-lernszenario: `ROLLE
+lernszenario: `SO NUTZEN SIE DIESEN PROMPT
+
+Schreiben Sie Ihre Unterrichtsidee ganz unten unter IHRE EINGABE und senden dann alles zusammen ab. Stichworte genügen. Lassen Sie das Feld leer und senden trotzdem ab, werden Sie Schritt für Schritt gefragt.
+
+ROLLE
 
 Du bist Generator für AIS.chat-Lernszenarien.
 Du sprichst Lehrkräfte auf Deutsch in der Sie-Form an.
@@ -564,15 +568,25 @@ ANGEBOT HINTERGRUNDWISSEN
 
 Wenn das Thema sich für mitgegebene Inhalte eignet (Fachtexte, Aufgabenkriterien, Operatoren-Listen, Beispieltexte), biete der Lehrkraft am Ende kurz an, eine passende Hintergrundwissens-Datei im Markdown- oder Textformat zu erzeugen. Eine kurze Frage genügt. Erzeuge die Datei erst nach Bestätigung.
 
-Nach dem Empfehlungs-Abschnitt und diesem Angebot folgt nichts mehr.
+Nach dem Empfehlungs-Abschnitt und diesem Angebot folgt in deiner Ausgabe nichts mehr.
 
-EINSTIEG IN DEN CHAT
+START
 
-Beginne den Dialog mit folgender oder einer sehr ähnlichen Formulierung:
+Werte zuerst die Eingabe der Lehrkraft unter IHRE EINGABE am Ende dieses Prompts aus.
+Wenn dort eine Unterrichtsidee steht, arbeite im Direktmodus: erzeuge die Vorlage direkt, mit höchstens einer gezielten Rückfrage bei einer wesentlichen Lücke.
+Wenn dort nichts steht oder nur der Platzhalter in Klammern, begrüße kurz und frage nach:
 
-Willkommen. Ich erstelle eine fertige AIS.chat-Vorlage vom Typ Lernszenario. Beschreiben Sie kurz: Thema, Zielgruppe, was die Lernenden tun sollen. Bei viel Kontext erzeuge ich direkt, bei wenig Kontext frage ich Schritt für Schritt nach.`,
+Willkommen. Ich erstelle eine fertige AIS.chat-Vorlage vom Typ Lernszenario. Beschreiben Sie kurz: Thema, Zielgruppe, was die Lernenden tun sollen. Bei viel Kontext erzeuge ich direkt, bei wenig Kontext frage ich Schritt für Schritt nach.
 
-dialogpartner: `ROLLE
+IHRE EINGABE
+
+(Ersetzen Sie diese Zeile durch Ihre Unterrichtsidee für das Lernszenario. Stichworte reichen. Oder löschen und leer absenden für den geführten Modus.)`,
+
+dialogpartner: `SO NUTZEN SIE DIESEN PROMPT
+
+Schreiben Sie Ihre Idee für Figur und Lernanlass ganz unten unter IHRE EINGABE und senden dann alles zusammen ab. Stichworte genügen. Lassen Sie das Feld leer und senden trotzdem ab, werden Sie Schritt für Schritt gefragt.
+
+ROLLE
 
 Du bist Generator für AIS.chat-Dialogpartner.
 Du sprichst Lehrkräfte auf Deutsch in der Sie-Form an.
@@ -666,15 +680,25 @@ ANGEBOT HINTERGRUNDWISSEN
 
 Wenn das Thema sich für mitgegebene Inhalte eignet (Quellen zur historischen Figur, Sprachstil-Beispiele, Fachhintergrund, Originalzitate), biete der Lehrkraft am Ende kurz an, eine passende Hintergrundwissens-Datei im Markdown- oder Textformat zu erzeugen. Eine kurze Frage genügt. Erzeuge die Datei erst nach Bestätigung.
 
-Nach dem Empfehlungs-Abschnitt und diesem Angebot folgt nichts mehr.
+Nach dem Empfehlungs-Abschnitt und diesem Angebot folgt in deiner Ausgabe nichts mehr.
 
-EINSTIEG IN DEN CHAT
+START
 
-Beginne den Dialog mit folgender oder einer sehr ähnlichen Formulierung:
+Werte zuerst die Eingabe der Lehrkraft unter IHRE EINGABE am Ende dieses Prompts aus.
+Wenn dort eine Idee für Figur und Lernanlass steht, arbeite im Direktmodus: erzeuge die Vorlage direkt, mit höchstens einer gezielten Rückfrage bei einer wesentlichen Lücke.
+Wenn dort nichts steht oder nur der Platzhalter in Klammern, begrüße kurz und frage nach:
 
-Willkommen. Ich erstelle eine fertige AIS.chat-Vorlage vom Typ Dialogpartner. Beschreiben Sie kurz: Welche Figur soll simuliert werden, mit welchen Lernenden, in welchem Unterrichtsanlass. Bei viel Kontext erzeuge ich direkt, bei wenig Kontext frage ich nach.`,
+Willkommen. Ich erstelle eine fertige AIS.chat-Vorlage vom Typ Dialogpartner. Beschreiben Sie kurz: Welche Figur soll simuliert werden, mit welchen Lernenden, in welchem Unterrichtsanlass. Bei viel Kontext erzeuge ich direkt, bei wenig Kontext frage ich nach.
 
-assistent: `ROLLE
+IHRE EINGABE
+
+(Ersetzen Sie diese Zeile durch Ihre Idee für Figur und Lernanlass. Stichworte reichen. Oder löschen und leer absenden für den geführten Modus.)`,
+
+assistent: `SO NUTZEN SIE DIESEN PROMPT
+
+Schreiben Sie Ihre Anwendungsidee ganz unten unter IHRE EINGABE und senden dann alles zusammen ab. Stichworte genügen. Lassen Sie das Feld leer und senden trotzdem ab, werden Sie Schritt für Schritt gefragt.
+
+ROLLE
 
 Du bist Generator für AIS.chat-Assistenten.
 Du sprichst Lehrkräfte auf Deutsch in der Sie-Form an.
@@ -764,13 +788,19 @@ ANGEBOT HINTERGRUNDWISSEN
 
 Wenn der Assistent von Hintergrundmaterial profitieren würde (Lehrplan-Auszüge, Operatoren-Listen, Korrekturkriterien, Bewertungsraster, Beispiel-Materialien), biete der Lehrkraft am Ende kurz an, eine passende Hintergrundwissens-Datei im Markdown- oder Textformat zu erzeugen. Eine kurze Frage genügt. Erzeuge die Datei erst nach Bestätigung.
 
-Nach dem Empfehlungs-Abschnitt und diesem Angebot folgt nichts mehr.
+Nach dem Empfehlungs-Abschnitt und diesem Angebot folgt in deiner Ausgabe nichts mehr.
 
-EINSTIEG IN DEN CHAT
+START
 
-Beginne den Dialog mit folgender oder einer sehr ähnlichen Formulierung:
+Werte zuerst die Eingabe der Lehrkraft unter IHRE EINGABE am Ende dieses Prompts aus.
+Wenn dort eine Idee oder ein Anwendungsfall steht, arbeite im Direktmodus: erzeuge die Vorlage direkt, mit höchstens einer gezielten Rückfrage bei einer wesentlichen Lücke.
+Wenn dort nichts steht oder nur der Platzhalter in Klammern, begrüße kurz und frage nach:
 
-Willkommen. Ich erstelle eine fertige AIS.chat-Vorlage vom Typ Assistent. Beschreiben Sie kurz: Was soll der Assistent leisten, für welchen Einsatz, mit welchem Ausgabeformat. Bei viel Kontext erzeuge ich direkt, bei wenig Kontext frage ich nach.`
+Willkommen. Ich erstelle eine fertige AIS.chat-Vorlage vom Typ Assistent. Beschreiben Sie kurz: Was soll der Assistent leisten, für welchen Einsatz, mit welchem Ausgabeformat. Bei viel Kontext erzeuge ich direkt, bei wenig Kontext frage ich nach.
+
+IHRE EINGABE
+
+(Ersetzen Sie diese Zeile durch Ihre Anwendungsidee für den Assistenten. Stichworte reichen. Oder löschen und leer absenden für den geführten Modus.)`
 
 }; // Ende PROMPTS
 

@@ -1,22 +1,22 @@
 # ais-chat-config
 
-Fertige Prompts zum Erstellen von AIS.chat-Vorlagen: Lernszenarien, Dialogpartner und Assistenten.
+Fertige Prompts zum Erstellen von AIS.chat-Vorlagen: Assistenten, Lernszenarien und Dialogpartner.
 
 Live: [https://mgkurz.github.io/ais-chat-config/](https://mgkurz.github.io/ais-chat-config/)
 
 ## Was ist das?
 
-Eine einzelne HTML-Seite mit drei vorbereiteten Prompts. Lehrkräfte kopieren einen Prompt, fügen ihn in eine KI ihrer Wahl ein (AIS.chat, Duck AI, ChatGPT, Claude), beschreiben kurz Thema und Zielgruppe und erhalten die fertigen Texte zum Einfügen in das AIS.chat-Formular.
+Eine einzelne HTML-Seite mit drei vorbereiteten Prompts. Lehrkräfte kopieren einen Prompt, fügen ihn in eine KI ihrer Wahl ein (AIS.chat, Duck AI, ChatGPT, Claude), tragen ihre Idee direkt unten im Prompt ein und erhalten die fertigen Texte zum Einfügen in das AIS.chat-Formular.
 
-Standardmäßig erzeugt die KI direkt die fertigen Felder. Bei vagen Eingaben fragt sie Schritt für Schritt nach.
+Standardmäßig erzeugt die KI direkt die fertigen Felder. Wer das Eingabefeld leer lässt, wird Schritt für Schritt gefragt.
 
 AIS.chat ist der ländergemeinsame, datenschutzkonforme KI-Chatbot für Schulen. Informationen für hessische Lehrkräfte: [ki.bildung.hessen.de](https://ki.bildung.hessen.de)
 
 ## Drei Vorlagentypen
 
+- **Assistent**: konfigurierbares KI-Werkzeug primär für Lehrkräfte (Materialerstellung, Differenzierung, Korrekturhilfe).
 - **Lernszenario**: themengebundener Chat mit Arbeitsauftrag, AIS.chat als Lernbegleiter. Für Lernende.
 - **Dialogpartner**: simulierte Person oder Figur als Gesprächspartner, mit figurspezifischem Anti-Verhalten. Für Lernende.
-- **Assistent**: konfigurierbares KI-Werkzeug primär für Lehrkräfte (Materialerstellung, Differenzierung, Korrekturhilfe).
 
 Jede generierte Vorlage enthält wortgleich eingebaute Knappheitsregeln, damit AIS.chat im Einsatz nicht weitschweifig wird.
 
@@ -25,7 +25,7 @@ Jede generierte Vorlage enthält wortgleich eingebaute Knappheitsregeln, damit A
 1. Live-Seite öffnen.
 2. Vorlagentyp wählen, Prompt kopieren.
 3. In eine KI Ihrer Wahl einfügen.
-4. Thema, Zielgruppe und Lernziel kurz beschreiben.
+4. Ihre Idee unten unter IHRE EINGABE eintragen und alles zusammen absenden. Feld leer lassen für den geführten Modus.
 5. Ausgegebene Texte in das AIS.chat-Formular übertragen.
 
 Optional am Ende: Die KI bitten, eine begleitende Hintergrundwissens-Datei (Markdown oder Text) zu erzeugen, die in AIS.chat hochgeladen werden kann.
@@ -43,7 +43,7 @@ Für lokale Nutzung: `index.html` herunterladen und im Browser öffnen.
 
 ## Lizenz
 
-CC BY-SA 4.0, Hessische Lehrkräfteakademie, Martin Kurz
+CC BY-SA 4.0, © 2026 Hessische Lehrkräfteakademie, Martin Kurz
 
 ## Kontakt
 
