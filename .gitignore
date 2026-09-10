@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# Claude Code, lokal und nicht öffentlich
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Transitzone für Rohdaten und Entwürfe, wird nie committet
+workbench/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Sicherungen und Zwischenstände
+*.bak
+*.orig
+index.html.backup
