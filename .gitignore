@@ -12,6 +12,9 @@ CLAUDE.local.md
 # Transitzone für Rohdaten und Entwürfe, wird nie committet
 workbench/
 
+# Artefakte lokaler Browser-Tests
+.playwright-mcp/
+
 # Editor
 .vscode/
 .idea/

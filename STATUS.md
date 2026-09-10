@@ -1,10 +1,10 @@
 # STATUS
 
-Stand: 09.09.2026
+Stand: 10.09.2026
 
 ## Aktueller Stand
 
-**v2.0.1 (Tag `v2.0.1`, 21.05.2026)**, veröffentlicht über GitHub Pages.
+**v2.0.2 (Tag `v2.0.2`, 10.09.2026)**, veröffentlicht über GitHub Pages.
 
 Inhalt: eine `index.html` (891 Zeilen) mit drei Meta-Prompts als JS-Konstanten, dazu Impressum und Datenschutzerklärung als Hash-gesteuerte Unterseiten in derselben Datei. Kein Build, keine externen Ressourcen, kein Tracking.
 
@@ -18,7 +18,9 @@ Alle drei Vorlagentypen haben fünf Felder:
 
 Versionsgeschichte: v1.0.0 (07.05.2026), v2.0.0 (19.05.2026, Prompts auf den damaligen `ais-chat-builder`-Stand gebracht), v2.0.1 (21.05.2026, Idee-Direkteingabe unter IHRE EINGABE, neue Typ-Reihenfolge, Lizenzjahr).
 
-Seit v2.0.1 wurde am Repo nichts mehr geändert. Dieser Klon ist ab jetzt Produktionsort und Quelle der Wahrheit, die Exporte unter `~/Documents/Arbeit/MediaLab/` sind Release-Kopien (siehe `ORTE.md`).
+v2.0.2 (10.09.2026) korrigiert den widersprüchlichen Satz im Haftungsausschluss des Impressums, eine reine Textänderung an einer Zeile. Vorher geprüft: JS-Syntax, Tag-Balance, Prompt-Block byte-identisch, Funktionstest im Browser (Textarea-Befüllung, Hash-Routing zu Impressum und Datenschutz, Vorschau-Toggle).
+
+Dieses Repo ist Produktionsort und Quelle der Wahrheit, die Exporte unter `~/Documents/Arbeit/MediaLab/` sind Release-Kopien (siehe `ORTE.md`). Für v2.0.2 ist noch kein Export angelegt.
 
 ## Offene Punkte
 
@@ -46,14 +48,24 @@ Zu entscheiden: v2.1.0-Logik hier nachziehen (dann Major- oder Minor-Release plu
 
 `index.html` nutzt ein eigenes Grünschema (`--color-accent: #4a7c59`) und System-Schriften, nicht Barlow, Dark Purple und Mint aus dem AIS.chat-Styleguide. Die Typ-Akzentfarben (Lila, Beere, Grün) sind ebenfalls frei gewählt. Eine Umstellung wäre reine CSS-Arbeit ohne Struktureingriff, Schriften müssten wegen der No-CDN-Regel lokal mitgeliefert werden.
 
-### 4. Git-Autor wechselt beim nächsten Commit
+### 4. Git-Autor gewechselt (vollzogen am 10.09.2026)
 
 Die gesamte bisherige Historie ist mit der privaten Autor-Adresse geschrieben. Lokal ist keine Mail gesetzt, global steht die dienstliche Adresse. Der nächste Commit läuft damit auf die dienstliche Adresse, die Historie bekommt einen Bruch. (Konkrete Adressen bewusst nicht hier, sie stehen in `CLAUDE.local.md` und im Impressum.)
 
-Entschieden: Das ist so gewollt. Impressum und Verantwortung sind dienstlich, deshalb bleibt es bei der globalen dienstlichen Adresse, kein `git config --local`. Der Bruch wird in Kauf genommen, alte Commits werden nicht umgeschrieben.
+Vollzogen mit Commit `95dc3db`, seitdem laufen alle Commits auf die dienstliche Adresse. Entschieden: Das ist so gewollt. Impressum und Verantwortung sind dienstlich, deshalb bleibt es bei der globalen dienstlichen Adresse, kein `git config --local`. Der Bruch wird in Kauf genommen, alte Commits werden nicht umgeschrieben.
 
 ### 5. Kleinigkeiten
 
 - Die Seite trägt keine sichtbare Versionsnummer. Wer die Datei lokal gespeichert hat, kann seinen Stand nicht erkennen. Ein kleiner Vermerk im Footer würde reichen.
 - Kein `CHANGELOG.md`. Die Tag-Nachrichten tragen die Information, das Schwesterprojekt führt aber ein Changelog. Bei der nächsten inhaltlichen Änderung mit anlegen.
-- Im Impressum steht unter Haftungsausschluss: "Die bereitgestellten Prompts sind Vorlagen und Ausgangspunkte, keine fertigen Vorlagen." Der Satz widerspricht sich selbst. Gemeint ist vermutlich "keine fertigen Unterrichtsmaterialien". Beim nächsten Anfassen korrigieren.
+
+### 6. Befunde aus dem Code-Review vom 10.09.2026 (keiner davon dringend)
+
+Beim Review des Skriptteils gefunden, bewusst nicht in v2.0.2 mitgeändert, weil dieses Release eine reine Textkorrektur bleiben sollte.
+
+- **Fallback beim Kopieren greift nicht überall.** `copyPrompt()` ruft `navigator.clipboard.writeText(...)` und fängt Fehler nur über `.catch()` am Promise ab. Fehlt die Clipboard-API ganz, wirft schon der Zugriff auf `navigator.clipboard` synchron einen TypeError, der `.catch()`-Zweig mit `execCommand('copy')` läuft dann nie. Betrifft nicht GitHub Pages (dort ist der Kontext sicher, die API vorhanden), aber möglicherweise den in der README beschriebenen Weg "index.html herunterladen und lokal öffnen" über `file://`. Fix wäre ein Guard vor dem Aufruf, etwa `if (navigator.clipboard && navigator.clipboard.writeText) { ... } else { fallback() }`. Vorher auf einem echten `file://`-Aufruf reproduzieren, der Testlauf lief über localhost und konnte den Fall nicht zeigen.
+- **Kein `<noscript>`-Hinweis.** Die Prompts stehen nur im Skript und werden erst bei `DOMContentLoaded` in die Textareas geschrieben. Ohne JavaScript ist die Seite leer, ohne Erklärung. Ein kurzer Hinweis wäre ein Einzeiler.
+- **Kein Favicon.** Der Aufruf erzeugt einen 404 auf `/favicon.ico`. Nur kosmetisch, würde aber zum AIS.chat-CD passen (Signet).
+- **Toast ohne `aria-live`.** Die Meldung "Prompt kopiert!" wird von Screenreadern nicht angekündigt. Ein Attribut genügt, passt zur Vorgabe "grundlegende Konformität".
+- `togglePreview()` findet den Button über `el.nextElementSibling.querySelector(...)`. Funktioniert, hängt aber an der DOM-Reihenfolge innerhalb der Karte. Bei Umbauten am Karten-Markup daran denken.
+
