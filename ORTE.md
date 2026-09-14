@@ -8,13 +8,9 @@ Verweisen statt kopieren. Quelle der Wahrheit für Quellcode und Doku ist dieses
 | Ort | Adresse | Rolle |
 |---|---|---|
 | Repo | https://github.com/mgkurz/ais-chat-config | Quelle der Wahrheit, öffentlich |
-| GitHub Pages | https://mgkurz.github.io/ais-chat-config/ | Live-Seite aus diesem Repo |
-| Spiegel | https://la-medienproduktion.github.io/ais-chat-config/ | zweite Pages-Instanz, Organisationskonto |
-| Kurzlink | https://t1p.de/ais-chat-config | zeigt auf den **Spiegel**, nicht auf mgkurz. In Fortbildungen verteilt, auch als QR-Code |
+| GitHub Pages | https://mgkurz.github.io/ais-chat-config/ | Live-Seite aus diesem Repo, die einzige Adresse zum Verlinken |
 
-Kurzlink-Verwaltung (Deaktivierungslink, QR-Generator): `~/Projekte/hessische-lehrkraefteakademie/referenz/t1p_de-ais-chat-config.txt`
-
-Weil der Kurzlink auf den Spiegel zeigt, muss der Spiegel nach jedem Release nachgezogen werden. Sonst sehen Fortbildungsteilnehmer einen alten Stand.
+Der frühere Spiegel `la-medienproduktion.github.io/ais-chat-config` ist seit 14.09.2026 gelöscht, der Kurzlink `t1p.de/ais-chat-config`, der darauf zeigte, ist deaktiviert und bei t1p dauerhaft gesperrt. In Material und QR-Codes nur noch die Pages-Adresse oben verwenden.
 
 ## Versionsexporte (Release-Kopien)
 
