@@ -18,15 +18,16 @@ Kommunikation, Arbeitsweise und Kenntnisstand stehen global in `~/.claude/CLAUDE
 
 - **Was**: Eine einzelne HTML-Seite mit drei Meta-Prompts (Assistent, Lernszenario, Dialogpartner). Lehrkräfte kopieren einen Prompt, tragen ihre Unterrichtsidee unter IHRE EINGABE ein und erhalten von einer KI die fertigen Feldtexte für eine AIS.chat-Vorlage. Die Seite selbst erzeugt nichts, sie liefert nur die Prompts.
 - **Zielgruppe**: Lehrkräfte, überwiegend ohne Prompting-Vorerfahrung.
-- **Einsatzkontext**: GitHub Pages, öffentlich, zusätzlich ein Spiegel und ein Kurzlink für Fortbildungen (siehe `ORTE.md`). Anbieterunabhängig: funktioniert mit jeder KI, genannt werden AIS.chat, Duck AI, ChatGPT und Claude.
+- **Einsatzkontext**: GitHub Pages, öffentlich, einzige Adresse zum Verlinken siehe `ORTE.md`. Anbieterunabhängig: funktioniert mit jeder KI, genannt werden AIS.chat, Duck.ai, Mistral, ChatGPT, Claude und Gemini.
 
 ## Projektregeln
 
 - `index.html` ist Single File: kein Build, kein Framework, keine externen Abhängigkeiten. Änderungen gehen direkt in die Datei, es gibt keinen Generator davor.
 - Die drei Prompts stehen als JS-Konstanten im `<script>`-Block, in `const PROMPTS = { lernszenario, dialogpartner, assistent }`. Der Kommentar darüber gilt: nur diese Texte aktualisieren, den Rest des Skripts unverändert lassen.
 - Anzeigereihenfolge ist Assistent, Lernszenario, Dialogpartner und ergibt sich aus der Kartenreihenfolge im HTML, nicht aus dem `PROMPTS`-Objekt. Die Objekt-Keys stehen noch in der alten Reihenfolge.
-- Versionierung läuft über Git-Tags nach SemVer mit `v`-Präfix (aktuell `v2.0.1`). Jede veröffentlichte Änderung bekommt einen Tag. Die Seite selbst trägt keine sichtbare Versionsnummer.
-- **Jede inhaltliche Prompt-Änderung braucht einen Abgleich mit `ais-chat-builder`.** Beide Projekte halten ihre Prompts getrennt und teilen keinen Code. Feldlogik, Zeichenlimits und Knappheitsbausteine müssen von Hand in beide Richtungen abgeglichen werden. Vor und nach jeder Prompt-Änderung dort den Stand prüfen (siehe `ORTE.md` und `STATUS.md`).
+- Versionierung läuft über Git-Tags nach SemVer mit `v`-Präfix (aktuell `v2.1.0`), Änderungen stehen in `CHANGELOG.md`. Jede veröffentlichte Änderung bekommt einen Tag. Die Seite selbst trägt keine sichtbare Versionsnummer.
+- **Jede inhaltliche Prompt-Änderung braucht einen Abgleich mit `ais-chat-builder`.** Beide Projekte halten ihre Prompts getrennt und teilen keinen Code. Feldlogik, Zeichenlimits und Knappheitsbausteine müssen von Hand in beide Richtungen abgeglichen werden. Vor und nach jeder Prompt-Änderung dort den Stand prüfen (siehe `ORTE.md` und `STATUS.md`). Stand seit v2.1.0: Feldlogik wie Builder v2.1.0, Block-Überschriften im Instruktionsfeld als Markdown vierter Ebene (`#### Rolle` usw.). Bewusste Abweichungen vom Builder stehen in `STATUS.md`.
+- **Längenbudget**: Jeder Prompt höchstens 5.300 Zeichen ohne die Platzhalterzeile unter IHRE EINGABE. Grund: Der Chat von AIS.chat nimmt derzeit höchstens 6.000 Zeichen pro Nachricht an (Stand 09/2026), daneben sollen mindestens ca. 650 Zeichen für die Idee bleiben. Nach jeder Prompt-Änderung messen. Das ausgeschriebene Ausgabegerüst unter AUSGABEFORMAT nicht wegkürzen: Im Test vom 15.09.2026 ließ ein kleines Modell ohne Gerüst bei 3 von 9 Läufen die Feldtitel weg. Ändert sich das Limit, den Aufklapper in der Intro-Box, die README und diese Regel anpassen.
 - Impressum, Datenschutzerklärung und Verantwortung sind dienstlich (Hessische Lehrkräfteakademie, Dezernat II.3 Medien). Die Repo-Mail bleibt deshalb die global eingestellte dienstliche Adresse, kein `git config --local`.
 
 ## Ablage und Orte
@@ -64,7 +65,7 @@ Kommunikation, Arbeitsweise und Kenntnisstand stehen global in `~/.claude/CLAUDE
 - Für AIS.chat liegt ein Styleguide als PDF vor, dazu Vorlagen-Dateien für Logo, Signets und Hintergründe.
 - Assets werden lokal abgelegt oder diskret im Repo gehalten.
 - Für dieses Projekt gilt das AIS.chat-CD (Barlow, Dark Purple, Mint). Styleguide und Vorlagen liegen in `~/Projekte/hessische-lehrkraefteakademie/referenz/` (`20260505_AIS.chat_Styleguide.pdf`).
-- Ist-Stand: `index.html` ist in v2.0.1 noch in einem eigenen Grünschema gehalten und nicht auf das CD umgestellt, siehe `STATUS.md`.
+- Ist-Stand: `index.html` ist bis v2.1.0 noch in einem eigenen Grünschema gehalten und nicht auf das CD umgestellt, siehe `STATUS.md`.
 
 ## Barrierefreiheit
 

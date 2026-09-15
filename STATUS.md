@@ -1,12 +1,12 @@
 # STATUS
 
-Stand: 10.09.2026
+Stand: 15.09.2026
 
 ## Aktueller Stand
 
-**v2.0.2 (Tag `v2.0.2`, 10.09.2026)**, veröffentlicht über GitHub Pages.
+**v2.1.0 (Tag `v2.1.0`, 15.09.2026)**, veröffentlicht über GitHub Pages.
 
-Inhalt: eine `index.html` (891 Zeilen) mit drei Meta-Prompts als JS-Konstanten, dazu Impressum und Datenschutzerklärung als Hash-gesteuerte Unterseiten in derselben Datei. Kein Build, keine externen Ressourcen, kein Tracking.
+Inhalt: eine `index.html` mit drei Meta-Prompts als JS-Konstanten, dazu Impressum und Datenschutzerklärung als Hash-gesteuerte Unterseiten in derselben Datei. Kein Build, keine externen Ressourcen, kein Tracking.
 
 Alle drei Vorlagentypen haben fünf Felder:
 
@@ -16,33 +16,41 @@ Alle drei Vorlagentypen haben fünf Felder:
 | Lernszenario | wie oben | Arbeitsauftrag (500) |
 | Dialogpartner | wie oben | Einstiegsfrage (500) |
 
-Versionsgeschichte: v1.0.0 (07.05.2026), v2.0.0 (19.05.2026, Prompts auf den damaligen `ais-chat-builder`-Stand gebracht), v2.0.1 (21.05.2026, Idee-Direkteingabe unter IHRE EINGABE, neue Typ-Reihenfolge, Lizenzjahr).
+v2.1.0 kürzt die Prompts, damit sie samt Idee in den Chat von AIS.chat passen, und bringt die Feldlogik auf den Stand von `ais-chat-builder` v2.1.0. Zeichenzahlen:
 
-v2.0.2 (10.09.2026) korrigiert den widersprüchlichen Satz im Haftungsausschluss des Impressums, eine reine Textänderung an einer Zeile. Vorher geprüft: JS-Syntax, Tag-Balance, Prompt-Block byte-identisch, Funktionstest im Browser (Textarea-Befüllung, Hash-Routing zu Impressum und Datenschutz, Vorschau-Toggle).
+| Prompt | v2.0.2 | v2.1.0 | ohne Platzhalterzeile | Platz für die Idee | bei doppelt gezählten Umbrüchen |
+|---|---|---|---|---|---|
+| Assistent | 5.685 | 4.686 | 4.549 | 1.451 | 1.363 |
+| Lernszenario | 5.917 | 4.946 | 4.807 | 1.193 | 1.107 |
+| Dialogpartner | 6.699 | 5.395 | 5.263 | 737 | 647 |
 
-Dieses Repo ist Produktionsort und Quelle der Wahrheit, die Exporte unter `~/Documents/Arbeit/MediaLab/` sind Release-Kopien (siehe `ORTE.md`). Für v2.0.2 ist noch kein Export angelegt.
+Versionsgeschichte in `CHANGELOG.md`: v1.0.0 (07.05.2026), v2.0.0 (19.05.2026), v2.0.1 (21.05.2026), v2.0.2 (10.09.2026), v2.1.0 (15.09.2026).
+
+Dieses Repo ist Produktionsort und Quelle der Wahrheit, die Exporte unter `~/Documents/Arbeit/MediaLab/` sind Release-Kopien (siehe `ORTE.md`). Für v2.0.2 und v2.1.0 ist kein Export angelegt.
 
 ## Offene Punkte
 
-### 1. Umbenennung `ki-modell-auswahl` bricht vier Links (vorgemerkt, nicht jetzt)
+### 1. Umbenennung `ki-modell-auswahl` bricht Links (vorgemerkt, nicht jetzt)
 
 Das Repo `ki-modell-auswahl` soll später in `ais-chat-modellwahl` umbenannt werden. Damit bricht `https://mgkurz.github.io/ki-modell-auswahl/`. Betroffene Stellen hier:
 
-- `index.html`, Zeile 561 (Lernszenario), 673 (Dialogpartner), 783 (Assistent), jeweils im Block EMPFEHLUNGEN unter "Modellwahl prüfen"
+- `index.html`, je einmal pro Prompt im Abschnitt EMPFEHLUNGEN unter „Modellwahl prüfen“
 - `README.md`, Abschnitt "Verwandte Projekte", GitHub-Link auf `mgkurz/ki-modell-auswahl`
 
-Zu beachten: GitHub richtet nach einer Umbenennung eine Weiterleitung für die Repo-URL ein, für **GitHub Pages gilt das nicht zuverlässig**. Die Pages-URL sollte als gebrochen angenommen werden. Wenn die Umbenennung kommt, ist das hier ein Patch-Release mit neuem Tag, danach Spiegel nachziehen.
+Zu beachten: GitHub richtet nach einer Umbenennung eine Weiterleitung für die Repo-URL ein, für **GitHub Pages gilt das nicht zuverlässig**. Die Pages-URL sollte als gebrochen angenommen werden. Wenn die Umbenennung kommt, ist das hier ein Patch-Release mit neuem Tag. Achtung Längenbudget: Eine längere URL kostet beim Dialogpartner Platz für die Idee.
 
-### 2. Prompt-Drift zu `ais-chat-builder` (inhaltlich das Dringendste)
+### 2. Prompt-Drift zu `ais-chat-builder` (erledigt mit v2.1.0)
 
-Das Schwesterprojekt steht auf **v2.1.0 (04.06.2026)** und hat die Feldlogik seitdem geändert:
+Die Feldlogik entspricht seit v2.1.0 dem Builder v2.1.0 (04.06.2026): Block-Überschriften im Instruktionsfeld als Markdown vierter Ebene in Mixed Case, Knappheitsbausteine wortgleich im v2.1.0-Wortlaut, „Kein Markdown wie Raute oder Sternchen“ gestrichen.
 
-- Block-Überschriften im Instruktionsfeld sind dort jetzt Markdown der vierten Ebene (`#### Rolle`, `#### Kontext`, `#### Verhalten`, `#### Format`) in Mixed Case, begründet mit einer Analyse des AIS.chat-Quellcodes.
-- Die Knappheitsbausteine wurden verschärft und steuern jetzt explizit gegen die hauseigenen Formatvorgaben von AIS.chat.
+Bewusste Abweichungen vom Builder, bleiben so:
 
-Hier steht dagegen noch die v2.0.1-Logik: Überschriften in Großbuchstaben und die ausdrückliche Anweisung "Kein Markdown wie Raute oder Sternchen". Genau diese Aussage hat der Builder in v2.1.0 zurückgenommen. Die beiden Projekte widersprechen sich damit inhaltlich.
+- Anti-Verhalten beim Dialogpartner immer (Builder: optional). Gibt Lehrkräften ohne Vorerfahrung verlässliche Leitplanken.
+- 3 bis 4 Promptvorschläge (Builder: bis zu 10, mindestens 3).
+- Beim Dialogpartner nur die personenorientierte Struktur (Builder: auch eine funktionale für komplexe Lernbegleiter).
+- START, IHRE EINGABE und das Angebot Hintergrundwissen gibt es nur hier.
 
-Zu entscheiden: v2.1.0-Logik hier nachziehen (dann Major- oder Minor-Release plus neue Exporte) oder bewusst auf dem alten Stand belassen und begründen.
+Beim nächsten Builder-Release wieder abgleichen und dabei das Längenbudget beachten (siehe Punkt 7).
 
 ### 3. Design nicht im AIS.chat-CD
 
@@ -57,11 +65,11 @@ Vollzogen mit Commit `95dc3db`, seitdem laufen alle Commits auf die dienstliche 
 ### 5. Kleinigkeiten
 
 - Die Seite trägt keine sichtbare Versionsnummer. Wer die Datei lokal gespeichert hat, kann seinen Stand nicht erkennen. Ein kleiner Vermerk im Footer würde reichen.
-- Kein `CHANGELOG.md`. Die Tag-Nachrichten tragen die Information, das Schwesterprojekt führt aber ein Changelog. Bei der nächsten inhaltlichen Änderung mit anlegen.
+- `CHANGELOG.md` ist mit v2.1.0 angelegt (erledigt).
 
 ### 6. Befunde aus dem Code-Review vom 10.09.2026 (keiner davon dringend)
 
-Beim Review des Skriptteils gefunden, bewusst nicht in v2.0.2 mitgeändert, weil dieses Release eine reine Textkorrektur bleiben sollte.
+Beim Review des Skriptteils gefunden, bewusst nicht in v2.0.2 mitgeändert, weil dieses Release eine reine Textkorrektur bleiben sollte. In v2.1.0 ebenfalls nicht angefasst, dort liefen nur Prompt- und Textänderungen.
 
 - **Fallback beim Kopieren greift nicht überall.** `copyPrompt()` ruft `navigator.clipboard.writeText(...)` und fängt Fehler nur über `.catch()` am Promise ab. Fehlt die Clipboard-API ganz, wirft schon der Zugriff auf `navigator.clipboard` synchron einen TypeError, der `.catch()`-Zweig mit `execCommand('copy')` läuft dann nie. Betrifft nicht GitHub Pages (dort ist der Kontext sicher, die API vorhanden), aber möglicherweise den in der README beschriebenen Weg "index.html herunterladen und lokal öffnen" über `file://`. Fix wäre ein Guard vor dem Aufruf, etwa `if (navigator.clipboard && navigator.clipboard.writeText) { ... } else { fallback() }`. Vorher auf einem echten `file://`-Aufruf reproduzieren, der Testlauf lief über localhost und konnte den Fall nicht zeigen.
 - **Kein `<noscript>`-Hinweis.** Die Prompts stehen nur im Skript und werden erst bei `DOMContentLoaded` in die Textareas geschrieben. Ohne JavaScript ist die Seite leer, ohne Erklärung. Ein kurzer Hinweis wäre ein Einzeiler.
@@ -69,3 +77,9 @@ Beim Review des Skriptteils gefunden, bewusst nicht in v2.0.2 mitgeändert, weil
 - **Toast ohne `aria-live`.** Die Meldung "Prompt kopiert!" wird von Screenreadern nicht angekündigt. Ein Attribut genügt, passt zur Vorgabe "grundlegende Konformität".
 - `togglePreview()` findet den Button über `el.nextElementSibling.querySelector(...)`. Funktioniert, hängt aber an der DOM-Reihenfolge innerhalb der Karte. Bei Umbauten am Karten-Markup daran denken.
 
+### 7. Chat-Limit von AIS.chat (seit v2.1.0 eingehalten)
+
+- Der Chat von AIS.chat nimmt derzeit höchstens 6.000 Zeichen pro Nachricht an (Stand 09/2026). Längenbudget und Begründung stehen in `CLAUDE.md`.
+- Offen: Wie zählt AIS.chat Zeilenumbrüche? Die Tabelle oben rechnet beide Fälle. Wird bei der Stichprobe in AIS.chat geklärt, dann hier nachtragen.
+- Für längere Ideen gibt es den Weg „Prompt unverändert absenden, Idee in der nächsten Nachricht“. Die Modusregeln im START-Abschnitt gelten deshalb fürs ganze Gespräch. Im Test hat das in 3 von 3 Fällen zur fertigen Vorlage geführt.
+- Hebt AIS.chat das Limit an, den Aufklapper „Tipp für den Chat von AIS.chat“ in der Intro-Box, die README und die Regel in `CLAUDE.md` prüfen.
