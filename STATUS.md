@@ -1,10 +1,12 @@
 # STATUS
 
-Stand: 15.09.2026
+Stand: 13.11.2026
 
 ## Aktueller Stand
 
-**v2.1.0 (Tag `v2.1.0`, 15.09.2026)**, veröffentlicht über GitHub Pages.
+**v2.2.0 (13.11.2026)** auf dem Branch `design-ais-cd`, noch nicht getaggt und nicht veröffentlicht. Veröffentlicht über GitHub Pages ist bis dahin v2.1.0 (Tag `v2.1.0`, 15.09.2026).
+
+v2.2.0 ist ein reines Redesign ins AIS.chat-CD (Muster `ki-modell-auswahl`). Prompts und Skript sind unverändert, die Zeichenzahlen unten gelten weiter.
 
 Inhalt: eine `index.html` mit drei Meta-Prompts als JS-Konstanten, dazu Impressum und Datenschutzerklärung als Hash-gesteuerte Unterseiten in derselben Datei. Kein Build, keine externen Ressourcen, kein Tracking.
 
@@ -24,7 +26,7 @@ v2.1.0 kürzt die Prompts, damit sie samt Idee in den Chat von AIS.chat passen, 
 | Lernszenario | 5.917 | 4.946 | 4.807 | 1.193 | 1.107 |
 | Dialogpartner | 6.699 | 5.395 | 5.263 | 737 | 647 |
 
-Versionsgeschichte in `CHANGELOG.md`: v1.0.0 (07.05.2026), v2.0.0 (19.05.2026), v2.0.1 (21.05.2026), v2.0.2 (10.09.2026), v2.1.0 (15.09.2026).
+Versionsgeschichte in `CHANGELOG.md`: v1.0.0 (07.05.2026), v2.0.0 (19.05.2026), v2.0.1 (21.05.2026), v2.0.2 (10.09.2026), v2.1.0 (15.09.2026), v2.2.0 (13.11.2026).
 
 Dieses Repo ist Produktionsort und Quelle der Wahrheit, die Exporte unter `~/Documents/Arbeit/MediaLab/` sind Release-Kopien (siehe `ORTE.md`). Für v2.0.2 und v2.1.0 ist kein Export angelegt.
 
@@ -52,9 +54,9 @@ Bewusste Abweichungen vom Builder, bleiben so:
 
 Beim nächsten Builder-Release wieder abgleichen und dabei das Längenbudget beachten (siehe Punkt 7).
 
-### 3. Design nicht im AIS.chat-CD
+### 3. Design nicht im AIS.chat-CD (erledigt mit v2.2.0)
 
-`index.html` nutzt ein eigenes Grünschema (`--color-accent: #4a7c59`) und System-Schriften, nicht Barlow, Dark Purple und Mint aus dem AIS.chat-Styleguide. Die Typ-Akzentfarben (Lila, Beere, Grün) sind ebenfalls frei gewählt. Eine Umstellung wäre reine CSS-Arbeit ohne Struktureingriff, Schriften müssten wegen der No-CDN-Regel lokal mitgeliefert werden.
+Erledigt: Seit v2.2.0 im AIS.chat-CD (Barlow eingebettet, Dark Purple, Mint, Logo und Pattern), Muster ist `ki-modell-auswahl`. Ausgangslage bis v2.1.0: `index.html` nutzte ein eigenes Grünschema (`--color-accent: #4a7c59`) und System-Schriften, nicht Barlow, Dark Purple und Mint aus dem AIS.chat-Styleguide. Die Typ-Akzentfarben (Lila, Beere, Grün) sind ebenfalls frei gewählt. Eine Umstellung wäre reine CSS-Arbeit ohne Struktureingriff, Schriften müssten wegen der No-CDN-Regel lokal mitgeliefert werden.
 
 ### 4. Git-Autor gewechselt (vollzogen am 10.09.2026)
 
@@ -64,7 +66,7 @@ Vollzogen mit Commit `95dc3db`, seitdem laufen alle Commits auf die dienstliche 
 
 ### 5. Kleinigkeiten
 
-- Die Seite trägt keine sichtbare Versionsnummer. Wer die Datei lokal gespeichert hat, kann seinen Stand nicht erkennen. Ein kleiner Vermerk im Footer würde reichen.
+- Die Seite trägt keine sichtbare Versionsnummer. Wer die Datei lokal gespeichert hat, kann seinen Stand nicht erkennen. Ein kleiner Vermerk im Footer würde reichen. Erledigt mit v2.2.0: „Version 2.2.0“ im Fuß. Bei jedem Release mitziehen.
 - `CHANGELOG.md` ist mit v2.1.0 angelegt (erledigt).
 
 ### 6. Befunde aus dem Code-Review vom 10.09.2026 (keiner davon dringend)
@@ -72,10 +74,11 @@ Vollzogen mit Commit `95dc3db`, seitdem laufen alle Commits auf die dienstliche 
 Beim Review des Skriptteils gefunden, bewusst nicht in v2.0.2 mitgeändert, weil dieses Release eine reine Textkorrektur bleiben sollte. In v2.1.0 ebenfalls nicht angefasst, dort liefen nur Prompt- und Textänderungen.
 
 - **Fallback beim Kopieren greift nicht überall.** `copyPrompt()` ruft `navigator.clipboard.writeText(...)` und fängt Fehler nur über `.catch()` am Promise ab. Fehlt die Clipboard-API ganz, wirft schon der Zugriff auf `navigator.clipboard` synchron einen TypeError, der `.catch()`-Zweig mit `execCommand('copy')` läuft dann nie. Betrifft nicht GitHub Pages (dort ist der Kontext sicher, die API vorhanden), aber möglicherweise den in der README beschriebenen Weg "index.html herunterladen und lokal öffnen" über `file://`. Fix wäre ein Guard vor dem Aufruf, etwa `if (navigator.clipboard && navigator.clipboard.writeText) { ... } else { fallback() }`. Vorher auf einem echten `file://`-Aufruf reproduzieren, der Testlauf lief über localhost und konnte den Fall nicht zeigen.
-- **Kein `<noscript>`-Hinweis.** Die Prompts stehen nur im Skript und werden erst bei `DOMContentLoaded` in die Textareas geschrieben. Ohne JavaScript ist die Seite leer, ohne Erklärung. Ein kurzer Hinweis wäre ein Einzeiler.
+- **Kein `<noscript>`-Hinweis.** Die Prompts stehen nur im Skript und werden erst bei `DOMContentLoaded` in die Textareas geschrieben. Ohne JavaScript ist die Seite leer, ohne Erklärung. Ein kurzer Hinweis wäre ein Einzeiler. Erledigt mit v2.2.0.
 - **Kein Favicon.** Der Aufruf erzeugt einen 404 auf `/favicon.ico`. Nur kosmetisch, würde aber zum AIS.chat-CD passen (Signet).
-- **Toast ohne `aria-live`.** Die Meldung "Prompt kopiert!" wird von Screenreadern nicht angekündigt. Ein Attribut genügt, passt zur Vorgabe "grundlegende Konformität".
-- `togglePreview()` findet den Button über `el.nextElementSibling.querySelector(...)`. Funktioniert, hängt aber an der DOM-Reihenfolge innerhalb der Karte. Bei Umbauten am Karten-Markup daran denken.
+- **Toast ohne `aria-live`.** Die Meldung "Prompt kopiert!" wird von Screenreadern nicht angekündigt. Ein Attribut genügt, passt zur Vorgabe "grundlegende Konformität". Erledigt mit v2.2.0 (`role="status"`, `aria-live="polite"`).
+- Offen bleiben aus diesem Punkt der Kopier-Rückfall und das Favicon.
+- `togglePreview()` findet den Button über `el.nextElementSibling.querySelector(...)`. Funktioniert, hängt aber an der DOM-Reihenfolge innerhalb der Karte. Bei Umbauten am Karten-Markup daran denken. Beim Redesign v2.2.0 beachtet, die Reihenfolge ist unverändert.
 
 ### 7. Chat-Limit von AIS.chat (seit v2.1.0 eingehalten)
 
