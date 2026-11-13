@@ -4,7 +4,7 @@ Stand: 13.11.2026
 
 ## Aktueller Stand
 
-**v2.2.0 (13.11.2026)** auf dem Branch `design-ais-cd`, noch nicht getaggt und nicht veröffentlicht. Veröffentlicht über GitHub Pages ist bis dahin v2.1.0 (Tag `v2.1.0`, 15.09.2026).
+**v2.2.0 (Tag `v2.2.0`, 13.11.2026)**, veröffentlicht über GitHub Pages. Rückweg bei Bedarf: Tag `v2.1.0` (15.09.2026).
 
 v2.2.0 ist ein reines Redesign ins AIS.chat-CD (Muster `ki-modell-auswahl`). Prompts und Skript sind unverändert, die Zeichenzahlen unten gelten weiter.
 

@@ -10,7 +10,7 @@ Design auf das AIS.chat-CD umgestellt, aus einem Guss mit der Schwesterseite `ki
 - Ein Farbsystem statt drei Typfarben: Kartentitel und Schaltflächen „Prompt kopieren“ in Dark Purple, Akzente in Mint und Mintlight (Schrittnummern, Intro-Box, Aktionsleiste, Kartenmerkmal). Grünschema und Typfarben entfallen.
 - Emojis in Kartenkopf und Schaltfläche entfernt, Kartentitel als `h2`.
 - Lesbarkeit am Beamer: Grundschrift 18 px, Fließtext `#2B2B33`, Nebentext `#555555`, alle Textpaare mindestens WCAG AA, Schaltflächen 48 px hoch, sichtbarer Fokusrahmen.
-- Impressum und Datenschutz im selben Look. Impressum, Abschnitt Lizenz: Logo und Muster als Marken der FWU von der CC-Lizenz ausgenommen, Barlow unter SIL Open Font License 1.1.
+- Impressum und Datenschutz im selben Look. Impressum, Abschnitt Lizenz: Logo und Muster als Kennzeichen des Anbieters von der CC-Lizenz ausgenommen (Wortlaut wie `ki-modell-auswahl`), Barlow unter SIL Open Font License 1.1.
 
 ### Neu
 
